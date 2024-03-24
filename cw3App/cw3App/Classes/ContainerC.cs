@@ -23,4 +23,11 @@ public class ContainerC(double cargoWeight, double height, double weight, double
 
         base.Fill(product.Weight);
     }
+
+    public override string ToString()
+    {
+        return base.ToString() +
+               "ProductType: " + ProductType +
+               "\nContainerTemperature: " + ContainerTemperature + "\n";
+    }
 }

@@ -14,4 +14,10 @@ public class ContainerG(double cargoWeight, double height, double weight, double
     {
         Console.WriteLine(SerialNumber + ": hazardous operation!");
     }
+
+    public override string ToString()
+    {
+        return base.ToString() +
+               "Pressure: " + Pressure + "\n";
+    }
 }

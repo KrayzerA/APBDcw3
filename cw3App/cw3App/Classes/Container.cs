@@ -24,4 +24,13 @@ public abstract class Container(double cargoWeight, double height, double weight
         CargoWeight += cargoWeight;
     }
 
+    public override string ToString()
+    {
+        return "SerialNumber: " + SerialNumber +
+               "\nHeight: " + Height +
+               "\nWeight: " + Weight +
+               "\nDepth: " + Depth +
+               "\nCargoWeight: " + CargoWeight +
+               "\nMaxCargoWeight: " + MaxCargoWeight + "\n";
+    }
 }
