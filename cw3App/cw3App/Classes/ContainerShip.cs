@@ -9,7 +9,7 @@ public class ContainerShip(double maxSpeed, int maxNumberOfContainers, double ma
     public int MaxNumberOfContainers { get; set; } = maxNumberOfContainers;
     public double MaxWeight { get; private set; } = maxWeight;
     public List<Container> Containers { get; private set; } = [];
-    public int Id { get; set; } = _id++;
+    public int Id { get; private set; } = _id++;
 
     public void AddContainer(Container container)
     {
@@ -24,7 +24,7 @@ public class ContainerShip(double maxSpeed, int maxNumberOfContainers, double ma
             currentWeight += cont.CargoWeight;
         }
 
-        if (currentWeight + container.CargoWeight > MaxWeight)
+        if (currentWeight + container.CargoWeight > MaxWeight * 1000)
         {
             throw new FullContainerShipException("Container can't be added, container ship is full by the weight of containers.");
         }
@@ -62,7 +62,7 @@ public class ContainerShip(double maxSpeed, int maxNumberOfContainers, double ma
         return resultContainer;
     }
 
-    public bool TransportTo(Container container, ContainerShip containerShip)
+    public bool TransportTo(ContainerShip containerShip, Container container)
     {
         try
         {
@@ -83,6 +83,6 @@ public class ContainerShip(double maxSpeed, int maxNumberOfContainers, double ma
                "\nMaxSpeed: " + MaxSpeed +
                "\nMaxWeight: " + MaxWeight +
                "\nMaxContainers: " + MaxNumberOfContainers +
-               "\nContainers on ship:\n" + String.Join("\n", Containers);
+               "\nContainers on ship:\n*****\n" + String.Join("\n", Containers) + "*****\n";
     }
 }
